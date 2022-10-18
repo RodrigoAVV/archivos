@@ -47,7 +47,7 @@ class Contenedor{
             console.log('Iniciando lectura...')
             let data = await fs.promises.readFile(ruta,'utf-8')
             data = JSON.parse(data)
-            console.log('Contenido\n',data)
+            return data
         } catch (error) {
             console.log('Ocurrio un error',error)
             throw new Error(error.message)
@@ -60,7 +60,7 @@ class Contenedor{
             data = JSON.parse(data)
             const cant = data.length
             const indice = Math.floor(Math.random() * cant)
-            console.log(data[indice])
+            return data[indice]
         } catch (error) {
             console.log('Ocurrio un error',error)
             throw new Error(error.message)

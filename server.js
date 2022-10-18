@@ -4,19 +4,19 @@ require('dotenv').config()
 
 const app = express()
 
-app.get('/productos',(_req,res) => {
+app.get('/productos',async (_req,res) => {
     file = new Contenedor()
-    const data = file.getAll('./data/productos.json')
-    res.send({
+    const data = await file.getAll('./data/productos.json')
+    res.status(200).send({
         productos:data
     })
     
 })
 
-app.get('/productoRandom',(_req,res) => {
+app.get('/productoRandom',async (_req,res) => {
     file = new Contenedor()
-    const data = file.productoRandom('./data/productos.json')
-    res.send({
+    const data = await file.productoRandom('./data/productos.json')
+    res.status(200).send({
         producto:data
     })
 })
