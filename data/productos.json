@@ -10,5 +10,11 @@
         "titulo": "pizza",
         "precio": 5600,
         "imagen": "url3"
+    },
+    {
+        "id": 3,
+        "titulo": "completo italiano",
+        "precio": 1890,
+        "imagen": "url4"
     }
 ]

@@ -54,6 +54,18 @@ class Contenedor{
         }
     }
 
+    productoRandom = async (ruta) => {
+        try {
+            let data = await fs.promises.readFile(ruta,'utf-8')
+            data = JSON.parse(data)
+            const cant = data.length
+            const indice = Math.floor(Math.random() * cant)
+            console.log(data[indice])
+        } catch (error) {
+            console.log('Ocurrio un error',error)
+            throw new Error(error.message)
+        }
+    }
     deleteById = async (id) => {
         try {
             let data = await fs.promises.readFile('./data/productos.json','utf-8')
@@ -87,8 +99,10 @@ class Contenedor{
             throw new Error(error.message)
         }
     }
-}
 
+}
+module.exports = Contenedor
+/*
 (async function(){
     file = new Contenedor()
     try {
@@ -108,5 +122,6 @@ class Contenedor{
         console.log('error',error)
     }
 })()
+*/
 
 
